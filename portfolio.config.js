@@ -32,7 +32,7 @@ window.PORTFOLIO = {
   featured: {
     title: "Aditya Maurya",
     subtitle: "Videographer",
-    video: "./img-vid/self.mov",
+    video: "./img-vid/self2.mp4",
     rotateToLandscape: false
   },
   work: [

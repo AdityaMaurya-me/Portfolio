@@ -82,11 +82,17 @@
   // Mobile browsers need the silent, inline media state explicitly set. Load the
   // hero first, then only start other videos when they are useful to the viewer.
   const prepareVideo = (video) => {
+    video.setAttribute('autoplay', '');
+    video.setAttribute('muted', '');
+    video.setAttribute('playsinline', '');
+    video.setAttribute('webkit-playsinline', '');
+    video.removeAttribute('controls');
     video.autoplay = true;
     video.loop = true;
     video.muted = true;
     video.defaultMuted = true;
     video.playsInline = true;
+    video.volume = 0;
     video.controls = false;
   };
   const playVideo = (video) => {
@@ -96,6 +102,12 @@
   const heroVideo = document.querySelector('[data-priority-video]');
   const featureVideo = document.querySelector('[data-feature-video]');
   const backgroundVideo = document.querySelector('[data-background-video]');
+  document.querySelectorAll('video').forEach(video => {
+    prepareVideo(video);
+    ['loadedmetadata', 'loadeddata', 'canplay', 'canplaythrough'].forEach(eventName => {
+      video.addEventListener(eventName, () => playVideo(video), { once: true });
+    });
+  });
   if (heroVideo) {
     playVideo(heroVideo);
     heroVideo.addEventListener('canplay', () => playVideo(heroVideo), { once: true });
@@ -105,6 +117,7 @@
       if (!entry.isIntersecting) return;
       featureVideo.preload = 'auto';
       featureVideo.dataset.loaded = 'true';
+      featureVideo.load();
       playVideo(featureVideo);
       featurePlayer.unobserve(entry.target);
     }), { rootMargin: '500px 0px' });
