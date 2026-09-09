@@ -17,7 +17,7 @@
       <img src="${safe(item.image)}" alt="" loading="lazy" />
       <div class="shade"></div>
       <a href="${safe(item.url)}" ${linkAttrs(item.url)} aria-label="Open ${safe(item.title)}"></a>
-      <div class="card-copy"><h3>${safe(item.title)}</h3><span aria-hidden="true">↗</span></div>
+      <div class="card-copy"><h3>${safe(item.title)}</h3><svg class="card-link-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></div>
     </article>`).join('');
   const toolLinks = p.tools.map(tool => `<a class="tool" href="${safe(tool.url)}" ${linkAttrs(tool.url)}>${tool.icon ? `<img class="tool-logo" src="${safe(tool.icon)}" alt="" />` : `<span class="tool-mark" aria-hidden="true">${safe(tool.name.charAt(0))}</span>`}${safe(tool.name)}</a>`).join('');
   app.innerHTML = `
