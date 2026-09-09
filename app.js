@@ -23,18 +23,30 @@
   app.innerHTML = `
     <section class="hero" id="home">
       <div class="hero-frame">
-        <video src="${safe(p.heroVideo)}" autoplay loop muted playsinline></video><div class="noise"></div><div class="hero-shade"></div>
+        <video class="hero-video" src="${safe(p.heroVideo)}" autoplay loop muted playsinline preload="auto" disablepictureinpicture controlslist="nodownload nofullscreen noremoteplayback"></video><div class="noise"></div><div class="hero-shade"></div>
         <nav><a href="#about">About</a><a href="#work">Work</a><a href="#tools">Tools</a><a href="#contact">Contact</a></nav>
         <div class="hero-copy"><div><p class="eyebrow">${safe(p.location)}</p><h1 class="name-font-cycle">${animatedName}</h1></div><div class="hero-action"><a class="pill hero-contact" href="${mail}"><span>Contact</span>${contactArrow}</a></div></div>
       </div>
     </section>
-    <section class="about section" id="about"><div class="panel centered reveal"><p class="label">Hello there,</p><h2>${safe(p.profile.headline)} <em class="font-cycle-holder font-cycle-long"><span class="font-cycle">${safe(p.profile.emphasis)}</span></em></h2><div class="chips">${p.profile.roles.map(x => `<span>${safe(x)}</span>`).join('')}</div><p class="description">${safe(p.profile.description)}</p><div class="experience">${p.profile.experience.map(x => `<div>${safe(x)}</div>`).join('')}</div><div class="chips languages">${p.profile.languages.map(x => `<span>${safe(x)}</span>`).join('')}</div></div></section>
-    <section class="work section" id="work"><div class="work-inner"><h2 class="section-title reveal">Selected work.</h2><div class="work-grid"><article class="feature reveal"><video class="${p.featured.rotateToLandscape ? 'rotate-landscape' : ''}" src="${safe(p.featured.video)}" autoplay loop muted playsinline></video><div class="shade"></div><div><strong>${safe(p.featured.title)}</strong><p>${safe(p.featured.subtitle)}</p></div></article></div><h2 class="section-title reveal">Take a look around.</h2><div class="work-carousel" aria-label="Selected work carousel"><button class="carousel-control carousel-prev" type="button" aria-label="Show previous work"><svg class="carousel-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></button><div class="wrapper"><div class="inner" style="--quantity:${p.work.length}">${cards}</div></div><button class="carousel-control carousel-next" type="button" aria-label="Show next work"><svg class="carousel-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button></div></div></section>
+    <section class="about section" id="about"><div class="panel centered reveal"><p class="label">Hello there,</p><h2>${safe(p.profile.headline)} <em class="font-cycle-holder font-cycle-long"><span class="font-cycle role-cycle" data-role-cycle>${safe((p.profile.emphasisCycle || [p.profile.emphasis])[0])}</span></em></h2><div class="chips">${p.profile.roles.map(x => `<span>${safe(x)}</span>`).join('')}</div><p class="description">${safe(p.profile.description)}</p><div class="experience">${p.profile.experience.map(x => `<div>${safe(x)}</div>`).join('')}</div><div class="chips languages">${p.profile.languages.map(x => `<span>${safe(x)}</span>`).join('')}</div></div></section>
+    <section class="work section" id="work"><div class="work-inner"><h2 class="section-title reveal">And That's me</h2><div class="work-grid"><article class="feature reveal"><video class="feature-video ${p.featured.rotateToLandscape ? 'rotate-landscape' : ''}" src="${safe(p.featured.video)}" autoplay loop muted playsinline preload="auto" disablepictureinpicture controlslist="nodownload nofullscreen noremoteplayback"></video><div class="shade"></div><div><strong>${safe(p.featured.title)}</strong><p>${safe(p.featured.subtitle)}</p></div></article></div><h2 class="section-title reveal">Take a look around.</h2><div class="work-carousel" aria-label="Selected work carousel"><button class="carousel-control carousel-prev" type="button" aria-label="Show previous work"><svg class="carousel-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></button><div class="wrapper"><div class="inner" style="--quantity:${p.work.length}">${cards}</div></div><button class="carousel-control carousel-next" type="button" aria-label="Show next work"><svg class="carousel-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button></div></div></section>
     <section class="tools section" id="tools"><div class="tools-row"><div><p class="label">Toolkit</p><p>The tools behind the work, shown only when they exist in the creator profile.</p></div><div class="tool-list">${toolLinks}</div></div><p class="location"></p></section>
-    <section class="contact section" id="contact"><div class="panel centered reveal"><p class="label">Get in touch</p><h2>Let's make something <em class="font-cycle-holder font-cycle-short"><span class="font-cycle">together.</span></em></h2><a class="pill email hero-contact" href="${mail}"><span>${safe(p.contact.email)}</span>${contactArrow}</a><div class="chips contact-links"><a href="${safe(p.contact.linktree)}" ${linkAttrs(p.contact.linktree)}>Linktree</a><a href="${safe(p.contact.instagram)}" ${linkAttrs(p.contact.instagram)}>Instagram</a><a href="${safe(p.contact.whatsapp)}" ${linkAttrs(p.contact.whatsapp)}>WhatsApp</a><a href="${safe(p.contact.drive)}" ${linkAttrs(p.contact.drive)}>Google Drive</a></div></div></section>`;
+    <section class="contact section" id="contact"><div class="panel centered reveal"><p class="label">Get in touch</p><h2>Let's make something <em class="font-cycle-holder font-cycle-short"><span class="font-cycle">together.</span></em></h2><a class="pill email hero-contact" href="${mail}"><span>${safe(p.contact.email)}</span>${contactArrow}</a><div class="chips contact-links"><a href="${safe(p.contact.instagram)}" ${linkAttrs(p.contact.instagram)}>Instagram</a><a href="${safe(p.contact.whatsapp)}" ${linkAttrs(p.contact.whatsapp)}>WhatsApp</a></div></div></section>`;
   document.title = `${p.name} – ${p.role} Portfolio`;
   const observer = new IntersectionObserver(entries => entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); }), { threshold: .12 });
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  const roleCycle = p.profile.emphasisCycle || [p.profile.emphasis];
+  const roleCycleText = document.querySelector('[data-role-cycle]');
+  if (roleCycleText && roleCycle.length > 1) {
+    let activeRole = 0;
+    window.setInterval(() => {
+      activeRole = (activeRole + 1) % roleCycle.length;
+      roleCycleText.classList.remove('role-cycle');
+      roleCycleText.textContent = roleCycle[activeRole];
+      void roleCycleText.offsetWidth;
+      roleCycleText.classList.add('role-cycle');
+    }, 1800);
+  }
   const carousel = document.querySelector('.work-carousel');
   if (carousel) {
     const track = carousel.querySelector('.inner');
@@ -66,13 +78,34 @@
   });
   fitRotatedFeatureVideo();
   window.addEventListener('resize', fitRotatedFeatureVideo);
-  const nameAnimation = document.querySelector('.name-animation');
+  // Some mobile browsers only honour autoplay after the element's media state is
+  // explicitly configured in JavaScript. Keep these videos silent and looping,
+  // with native controls disabled, then retry when enough media is available.
+  const keepVideosPlaying = () => document.querySelectorAll('video').forEach(video => {
+    video.autoplay = true;
+    video.loop = true;
+    video.muted = true;
+    video.defaultMuted = true;
+    video.playsInline = true;
+    video.controls = false;
+    const attemptPlay = () => video.play().catch(() => { });
+    attemptPlay();
+    video.addEventListener('canplay', attemptPlay, { once: true });
+  });
+  keepVideosPlaying();
+  document.addEventListener('visibilitychange', () => {
+    if (!document.hidden) keepVideosPlaying();
+  });
+
+  const nameAnimation = document.querySelector('.name-font-cycle');
   if (window.matchMedia('(hover: none)').matches && nameAnimation) {
     const hero = document.querySelector('.hero');
     const replayNameAnimation = () => {
-      nameAnimation.classList.remove('mobile-replay');
-      void nameAnimation.offsetWidth;
-      nameAnimation.classList.add('mobile-replay');
+      nameAnimation.querySelectorAll('.name-letter').forEach(letter => {
+        letter.style.animation = 'none';
+        void letter.offsetWidth;
+        letter.style.animation = '';
+      });
     };
     new IntersectionObserver(entries => entries.forEach(entry => {
       if (entry.isIntersecting) replayNameAnimation();

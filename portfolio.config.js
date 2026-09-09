@@ -18,6 +18,7 @@ window.PORTFOLIO = {
   profile: {
     headline: "I am Aditya Maurya,",
     emphasis: "videographer.",
+    emphasisCycle: ["Creative Head.", "Video Editor.", "AI Creator.", "Videographer.", "Photographer."],
     roles: ["Creative Head", "Video Editor", "AI Video Creator", "Videographer", "Photographer"],
     description: "Creative Head and freelance video editor producing AI-powered Reels, event coverage, and brand stories - from ideation and filming to layered editing, color correction, voice-over integration, publishing, and performance analysis.",
     experience: [

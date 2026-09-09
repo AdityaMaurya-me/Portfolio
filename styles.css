@@ -1,7 +1,7 @@
 :root{--cream:#e1e0cc;--muted:#dedbc8;--black:#000;--panel:#101010;--card:#212121}
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;background:var(--black);color:var(--cream);font-family:Manrope,Arial,sans-serif}
+html{scroll-behavior:smooth;overflow-x:clip}
+body{margin:0;max-width:100%;overflow-x:clip;background:var(--black);color:var(--cream);font-family:Manrope,Arial,sans-serif}
 .section{padding:6rem 1.5rem}
 .hero{height:100svh;padding:1.5rem}
 .hero-frame{height:100%;position:relative;overflow:hidden;border-radius:2rem;background:#000}
@@ -26,9 +26,11 @@ h1{margin:0;font-size:clamp(5rem,10vw,11rem);font-weight:500;line-height:.85;let
 /* Continuous type-only cycle for the emphasized words in About and Contact. */
 .font-cycle-holder{display:inline-block;position:relative;width:var(--cycle-slot);height:1em;vertical-align:baseline;overflow:visible}
 .font-cycle{position:absolute;top:0;left:50%;display:block;width:max-content;height:1em;white-space:nowrap;transform:translateX(-50%);font-size:inherit!important;line-height:1em;animation:font-cycle 1.35s steps(1,end) infinite}
-.font-cycle-long{--cycle-slot:10em}
+.font-cycle-long{--cycle-slot:12em}
 .font-cycle-short{--cycle-slot:6.5em}
 @keyframes font-cycle{0%{font-family:'Bodoni Moda',serif;font-style:italic}6.66%{font-family:'Cormorant Garamond',serif;font-style:normal}13.32%{font-family:'DM Serif Display',serif;font-style:italic}19.98%{font-family:'Libre Baskerville',serif;font-style:normal}26.64%{font-family:Lora,serif;font-style:italic}33.3%{font-family:Merriweather,serif;font-style:normal}39.96%{font-family:Montserrat,sans-serif;font-style:normal}46.62%{font-family:Oswald,sans-serif;font-style:normal}53.28%{font-family:'Playfair Display',serif;font-style:italic}59.94%{font-family:'Space Mono',monospace;font-style:normal}66.6%{font-family:Syne,sans-serif;font-style:normal}73.26%{font-family:Unbounded,sans-serif;font-style:normal}79.92%{font-family:'Work Sans',sans-serif;font-style:italic}86.58%{font-family:'Yeseva One',serif;font-style:normal}93.24%{font-family:Georgia,serif;font-style:italic}100%{font-family:'Bodoni Moda',serif;font-style:italic}}
+.role-cycle{animation:role-font-cycle .55s steps(1,end) infinite}
+@keyframes role-font-cycle{0%{font-family:'Bodoni Moda',serif;font-style:italic}20%{font-family:'DM Serif Display',serif;font-style:normal}40%{font-family:Montserrat,sans-serif;font-style:normal}60%{font-family:'Playfair Display',serif;font-style:italic}80%{font-family:Syne,sans-serif;font-style:normal}100%{font-family:Manrope,Arial,sans-serif;font-style:normal}}
 @keyframes name-intro{0%{font-family:Georgia,serif;font-weight:700;letter-spacing:-.06em;transform:translateY(.03em) skewX(-3deg)}17%{font-family:'Playfair Display',serif;font-style:italic;letter-spacing:-.045em;transform:translateX(-.018em)}34%{font-family:'DM Serif Display',serif;letter-spacing:-.025em;transform:translateY(-.025em)}51%{font-family:Georgia,serif;font-style:italic;letter-spacing:-.04em;transform:skewX(2deg)}68%{font-family:'Playfair Display',serif;letter-spacing:-.035em;transform:translateY(.018em)}100%{font-family:Manrope,Arial,sans-serif;font-style:normal;font-weight:500;letter-spacing:-.075em;transform:none}}
 @keyframes name-hover{0%{font-family:Georgia,serif;font-weight:700;letter-spacing:-.06em;transform:skewX(-3deg)}25%{font-family:'Playfair Display',serif;font-style:italic;letter-spacing:-.045em;transform:translateY(.02em)}50%{font-family:'DM Serif Display',serif;letter-spacing:-.025em;transform:translateX(-.018em)}75%{font-family:Georgia,serif;font-style:italic;letter-spacing:-.04em;transform:translateY(-.02em)}100%{font-family:Manrope,Arial,sans-serif;font-style:normal;font-weight:500;letter-spacing:-.075em;transform:none}}
 @media (hover:none){.name-animation{animation:none}.name-animation.mobile-replay{animation:name-intro .85s steps(1,end) both}}
@@ -123,13 +125,19 @@ h1{font-size:clamp(3.5rem,16vw,5rem)}
 .experience{grid-template-columns:1fr}
 .work{padding-top:1rem}
 .work-grid{grid-template-columns:1fr}
-.feature{grid-column:span 1;min-height:0;aspect-ratio:16/9}
-.work-carousel{display:block;min-height:0;overflow:visible}
-.work-carousel .wrapper{display:block;height:auto;overflow:visible}
-.work-carousel .inner{position:relative;top:auto;left:auto;display:grid;width:auto;height:auto;grid-template-columns:1fr;gap:1rem;transform:none!important;animation:none}
-.work-carousel .work-card{position:relative;width:auto;height:320px;transform:none!important}
-.work-carousel .work-card.is-active,.work-carousel .work-card.is-before,.work-carousel .work-card.is-after,.work-carousel .work-card.is-hidden{opacity:1;filter:none;pointer-events:auto;transform:none!important}
-.carousel-control{display:none}
+.feature{grid-column:span 1;min-height:0;height:auto;aspect-ratio:16/9;border-radius:1.25rem}
+.feature>video{object-fit:cover;background:#000}
+.work-carousel{display:flex;min-height:430px;overflow:visible}
+.work-carousel .wrapper{display:block;height:420px;overflow:hidden}
+.work-carousel .inner{position:relative;display:block;width:100%;height:100%;transform:none!important;animation:none}
+.work-carousel .work-card{position:absolute;top:50%;left:50%;width:min(70vw,300px);height:380px}
+.work-carousel .work-card.is-active{z-index:3;opacity:1;filter:none;pointer-events:auto;transform:translate(-50%,-50%) scale(1)!important}
+.work-carousel .work-card.is-before,.work-carousel .work-card.is-after{z-index:2;opacity:.42;filter:blur(2px) brightness(.56);pointer-events:none}
+.work-carousel .work-card.is-before{transform:translate(-142%,-43%) rotate(-8deg) scale(.68)!important}
+.work-carousel .work-card.is-after{transform:translate(42%,-43%) rotate(8deg) scale(.68)!important}
+.work-carousel .work-card.is-hidden{z-index:1;opacity:0;pointer-events:none;transform:translate(-50%,10%) scale(.55)!important}
+.carousel-control{display:grid;width:2.6rem;height:2.6rem}
+.carousel-prev{left:-.6rem}.carousel-next{right:-.6rem}
 .work-card{height:320px}
 .tools-row{display:block}
 .tool-list{margin-top:1.25rem}

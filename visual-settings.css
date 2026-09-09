@@ -49,7 +49,7 @@ body {
 
 /* Main name */
 h1 {
-  font-size: clamp(3rem, 10vw, 8rem);
+  font-size: clamp(3rem, 8vw, 6.5rem);
   font-weight: 500;
   line-height: .85;
   letter-spacing: -.075em;
@@ -116,7 +116,7 @@ nav {
 
 .panel h2 {
   max-width: 850px;
-  font-size: clamp(2.25rem, 4.2vw, 4rem);
+  font-size: clamp(2rem, 3.6vw, 3.5rem);
   line-height: .98;
   color: var(--cream);
 }
@@ -186,7 +186,8 @@ nav {
 }
 
 .section-title {
-  font-size: clamp(4.8rem, 3vw, 10.6rem);
+  font-size: clamp(2rem, 3vw, 3rem);
+  line-height: 1;
   color: var(--cream);
 }
 
@@ -320,8 +321,39 @@ nav {
   }
 
   h1 {
-    font-size: clamp(3.35rem, 15vw, 4.25rem);
-    line-height: .88;
+    font-size: clamp(3rem, 13vw, 3.85rem);
+    line-height: .9;
+  }
+
+  .section-title {
+    font-size: 2rem;
+    line-height: 1.05;
+    margin-bottom: 1.5rem;
+  }
+
+  .panel h2 {
+    font-size: clamp(1.9rem, 8.5vw, 2.45rem);
+    line-height: 1.05;
+  }
+
+  .description {
+    font-size: .94rem;
+    line-height: 1.65;
+  }
+
+  .feature strong {
+    font-size: 1.15rem;
+  }
+
+  .feature p,
+  .card-copy h3 {
+    font-size: .82rem;
+  }
+
+  .tool,
+  .chips span,
+  .chips a {
+    font-size: .8rem;
   }
 
   /* Show the animated name as two deliberate lines on small screens. */
@@ -336,7 +368,7 @@ nav {
   }
 
   .font-cycle-long {
-    --cycle-slot: 8.5em;
+    --cycle-slot: 10.5em;
   }
 
   .font-cycle-short {
@@ -354,19 +386,92 @@ nav {
     border-radius: 1.5rem;
   }
 
-  .work-card {
-    height: 320px;
+  /* Keep selected work as a compact, rounded video card on phones. */
+  .feature {
+    min-height: 0;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    border-radius: 1.25rem;
   }
 
-  /* On phones, show the work as a simple full-width, scrollable card list. */
+  .feature > video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background: var(--black);
+  }
+
+  .feature > div:last-child {
+    inset: auto 0 0;
+    padding: 1.25rem;
+  }
+
+  /* Mobile work wheel: one centered work with blurred previous/next previews. */
+  .work-carousel {
+    display: flex;
+    min-height: 430px;
+    overflow: visible;
+  }
+
   .work-carousel .wrapper {
-    height: auto;
+    height: 420px;
+    overflow: hidden;
+  }
+
+  .work-carousel .inner {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
   }
 
   .work-carousel .work-card {
-    width: auto;
-    height: 320px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: min(70vw, 300px);
+    height: 380px;
   }
+
+  .work-carousel .work-card.is-active {
+    z-index: 3;
+    opacity: 1;
+    filter: none;
+    pointer-events: auto;
+    transform: translate(-50%, -50%) scale(1) !important;
+  }
+
+  .work-carousel .work-card.is-before,
+  .work-carousel .work-card.is-after {
+    z-index: 2;
+    opacity: .42;
+    filter: blur(2px) brightness(.56);
+    pointer-events: none;
+  }
+
+  .work-carousel .work-card.is-before {
+    transform: translate(-142%, -43%) rotate(-8deg) scale(.68) !important;
+  }
+
+  .work-carousel .work-card.is-after {
+    transform: translate(42%, -43%) rotate(8deg) scale(.68) !important;
+  }
+
+  .work-carousel .work-card.is-hidden {
+    z-index: 1;
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-50%, 10%) scale(.55) !important;
+  }
+
+  .carousel-control {
+    display: grid;
+    width: 2.6rem;
+    height: 2.6rem;
+  }
+
+  .carousel-prev { left: -.6rem; }
+  .carousel-next { right: -.6rem; }
 
   .tools {
     padding-left: 1rem;
