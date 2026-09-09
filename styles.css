@@ -2,6 +2,10 @@
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;overflow-x:clip}
 body{margin:0;max-width:100%;overflow-x:clip;background:var(--black);color:var(--cream);font-family:Manrope,Arial,sans-serif}
+#app{position:relative;isolation:isolate}
+.site-background{position:fixed;z-index:-1;inset:0;overflow:hidden;background:#080908;pointer-events:none}
+.site-background::after{content:"";position:absolute;inset:0;background:linear-gradient(135deg,rgba(0,0,0,.86),rgba(225,224,204,.1) 52%,rgba(0,0,0,.88));backdrop-filter:saturate(.75)}
+.site-background video{width:100%;height:100%;object-fit:cover;opacity:.38;filter:saturate(.55) sepia(.2) contrast(.88)}
 .section{padding:6rem 1.5rem}
 .hero{height:100svh;padding:1.5rem}
 .hero-frame{height:100%;position:relative;overflow:hidden;border-radius:2rem;background:#000}
@@ -47,7 +51,7 @@ h1 sup{font-size:.28em;vertical-align:super;margin-left:.2em;letter-spacing:0}
 .contact-arrow circle{fill:var(--black);stroke:var(--black)}
 .contact-arrow path{fill:var(--cream)}
 .hero-contact:hover .contact-arrow{transform:translateX(5px)}
-.panel{max-width:1152px;margin:auto;border-radius:2rem;background:var(--panel);padding:5rem 3rem}
+.panel{max-width:1152px;margin:auto;border-radius:2rem;background:rgba(16,16,16,.9);padding:5rem 3rem}
 .centered{text-align:center}
 .panel h2{max-width:850px;margin:0 auto;font-size:clamp(2.25rem,4.2vw,4rem);line-height:.98;font-weight:400;letter-spacing:-.04em}
 .panel em{font-family:'DM Serif Display',serif;font-weight:400;color:var(--muted)}
@@ -63,7 +67,7 @@ h1 sup{font-size:.28em;vertical-align:super;margin-left:.2em;letter-spacing:0}
 .work-inner,.tools-row,.location,.connect{max-width:1280px;margin-left:auto;margin-right:auto}
 .section-title{font-size:clamp(1.8rem,3vw,2.6rem);font-weight:400;margin-bottom:2.5rem}
 .work-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
-.feature,.work-card{position:relative;overflow:hidden;border-radius:1.75rem;background:var(--card)}
+.feature,.work-card{position:relative;overflow:hidden;border-radius:1.75rem;background:rgba(33,33,33,.92)}
 .feature{grid-column:span 2;min-height:560px}
 .feature>video{position:absolute;inset:0}
 .feature>video.rotate-landscape{inset:auto;top:50%;left:50%;width:var(--rotated-width);height:var(--rotated-height);object-fit:cover;transform:translate(-50%,-50%) rotate(-90deg)}

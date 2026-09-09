@@ -21,6 +21,7 @@
     </article>`).join('');
   const toolLinks = p.tools.map(tool => `<a class="tool" href="${safe(tool.url)}" ${linkAttrs(tool.url)}>${tool.icon ? `<img class="tool-logo" src="${safe(tool.icon)}" alt="" />` : `<span class="tool-mark" aria-hidden="true">${safe(tool.name.charAt(0))}</span>`}${safe(tool.name)}</a>`).join('');
   app.innerHTML = `
+    <div class="site-background" aria-hidden="true"><video src="${safe(p.backgroundVideo)}" autoplay loop muted playsinline preload="auto"></video></div>
     <section class="hero" id="home">
       <div class="hero-frame">
         <video class="hero-video" src="${safe(p.heroVideo)}" autoplay loop muted playsinline preload="auto" disablepictureinpicture controlslist="nodownload nofullscreen noremoteplayback"></video><div class="noise"></div><div class="hero-shade"></div>

@@ -7,6 +7,7 @@ window.PORTFOLIO = {
   location: "Mumbai",
   role: "Videographer",
   heroVideo: "https://cdn.corrra.com/users/N5vJ51g6xlcEnCMgVSLNJnTrWpDCnF7L/customization/3237ebf3-b901-4508-8559-0375266f8e26.mp4",
+  backgroundVideo: "./img-vid/scene-background.mp4",
   contact: {
     email: "adimauryam@gmail.com",
     phone: "+91 9137966505",
