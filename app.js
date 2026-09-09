@@ -21,16 +21,16 @@
     </article>`).join('');
   const toolLinks = p.tools.map(tool => `<a class="tool" href="${safe(tool.url)}" ${linkAttrs(tool.url)}>${tool.icon ? `<img class="tool-logo" src="${safe(tool.icon)}" alt="" />` : `<span class="tool-mark" aria-hidden="true">${safe(tool.name.charAt(0))}</span>`}${safe(tool.name)}</a>`).join('');
   app.innerHTML = `
-    <div class="site-background" aria-hidden="true"><video src="${safe(p.backgroundVideo)}" autoplay loop muted playsinline preload="auto"></video></div>
+    <div class="site-background" aria-hidden="true"><video data-background-video src="${safe(p.backgroundVideo)}" loop muted playsinline webkit-playsinline preload="none"></video></div>
     <section class="hero" id="home">
       <div class="hero-frame">
-        <video class="hero-video" src="${safe(p.heroVideo)}" autoplay loop muted playsinline preload="auto" disablepictureinpicture controlslist="nodownload nofullscreen noremoteplayback"></video><div class="noise"></div><div class="hero-shade"></div>
+        <video class="hero-video" data-priority-video src="${safe(p.heroVideo)}" autoplay loop muted playsinline webkit-playsinline preload="auto" disablepictureinpicture controlslist="nodownload nofullscreen noremoteplayback"></video><div class="noise"></div><div class="hero-shade"></div>
         <nav><a href="#about">About</a><a href="#work">Work</a><a href="#tools">Tools</a><a href="#contact">Contact</a></nav>
         <div class="hero-copy"><div><p class="eyebrow">${safe(p.location)}</p><div class="name-with-camera"><h1 class="name-font-cycle">${animatedName}</h1><img class="hero-camera-mark" src="./img-vid/hero-camera-outline.png" alt="" aria-hidden="true" /></div></div><div class="hero-action"><a class="pill hero-contact" href="${mail}"><span>Contact</span>${contactArrow}</a></div></div>
       </div>
     </section>
     <section class="about section" id="about"><div class="panel centered reveal"><p class="label">Hello there,</p><div class="about-heading-art"><img class="about-side-mark about-laptop-mark" src="./img-vid/cat-laptop.png" alt="" aria-hidden="true" /><h2>${safe(p.profile.headline)} <em class="font-cycle-holder font-cycle-long"><span class="font-cycle role-cycle" data-role-cycle>${safe((p.profile.emphasisCycle || [p.profile.emphasis])[0])}</span></em></h2><img class="about-side-mark about-headphones-mark" src="./img-vid/cat-headphones.png" alt="" aria-hidden="true" /></div><div class="chips">${p.profile.roles.map(x => `<span>${safe(x)}</span>`).join('')}</div><p class="description">${safe(p.profile.description)}</p><div class="experience">${p.profile.experience.map(x => `<div>${safe(x)}</div>`).join('')}</div><div class="chips languages">${p.profile.languages.map(x => `<span>${safe(x)}</span>`).join('')}</div><img class="about-cat-mark" src="./img-vid/cat-camera-mark.png" alt="" aria-hidden="true" /></div></section>
-    <section class="work section" id="work"><div class="work-inner"><h2 class="section-title reveal">And That's me</h2><div class="work-grid"><article class="feature reveal"><video class="feature-video ${p.featured.rotateToLandscape ? 'rotate-landscape' : ''}" src="${safe(p.featured.video)}" autoplay loop muted playsinline preload="auto" disablepictureinpicture controlslist="nodownload nofullscreen noremoteplayback"></video><div class="shade"></div><div><strong>${safe(p.featured.title)}</strong><p>${safe(p.featured.subtitle)}</p></div></article></div><h2 class="section-title reveal">Take a look around.</h2><div class="work-carousel" aria-label="Selected work carousel"><button class="carousel-control carousel-prev" type="button" aria-label="Show previous work"><svg class="carousel-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></button><div class="wrapper"><div class="inner" style="--quantity:${p.work.length}">${cards}</div></div><button class="carousel-control carousel-next" type="button" aria-label="Show next work"><svg class="carousel-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button></div></div></section>
+    <section class="work section" id="work"><div class="work-inner"><h2 class="section-title reveal">And That's me</h2><div class="work-grid"><article class="feature reveal"><video class="feature-video ${p.featured.rotateToLandscape ? 'rotate-landscape' : ''}" data-feature-video src="${safe(p.featured.video)}" autoplay loop muted playsinline webkit-playsinline preload="none" disablepictureinpicture controlslist="nodownload nofullscreen noremoteplayback"></video><div class="shade"></div><div><strong>${safe(p.featured.title)}</strong><p>${safe(p.featured.subtitle)}</p></div></article></div><h2 class="section-title reveal">Take a look around.</h2><div class="work-carousel" aria-label="Selected work carousel"><button class="carousel-control carousel-prev" type="button" aria-label="Show previous work"><svg class="carousel-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></button><div class="wrapper"><div class="inner" style="--quantity:${p.work.length}">${cards}</div></div><button class="carousel-control carousel-next" type="button" aria-label="Show next work"><svg class="carousel-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button></div></div></section>
     <section class="tools section" id="tools"><div class="tools-row"><div><p class="label">Toolkit</p><p>The tools behind the work, shown only when they exist in the creator profile.</p></div><div class="tool-list">${toolLinks}</div></div><p class="location"></p></section>
     <section class="contact section" id="contact"><div class="panel centered reveal"><p class="label">Get in touch</p><h2>Let's make something <em class="font-cycle-holder font-cycle-short"><span class="font-cycle">together.</span></em></h2><a class="pill email hero-contact" href="${mail}"><span>${safe(p.contact.email)}</span>${contactArrow}</a><div class="social-cat-row"><a class="pill social-contact" href="${safe(p.contact.instagram)}" ${linkAttrs(p.contact.instagram)}>Instagram</a><img class="contact-cat-phone" src="./img-vid/cat-social-outline.png" alt="Cat holding a phone" /><a class="pill social-contact" href="${safe(p.contact.whatsapp)}" ${linkAttrs(p.contact.whatsapp)}>WhatsApp</a></div></div></section>`;
   document.title = `${p.name} – ${p.role} Portfolio`;
@@ -79,23 +79,51 @@
   });
   fitRotatedFeatureVideo();
   window.addEventListener('resize', fitRotatedFeatureVideo);
-  // Some mobile browsers only honour autoplay after the element's media state is
-  // explicitly configured in JavaScript. Keep these videos silent and looping,
-  // with native controls disabled, then retry when enough media is available.
-  const keepVideosPlaying = () => document.querySelectorAll('video').forEach(video => {
+  // Mobile browsers need the silent, inline media state explicitly set. Load the
+  // hero first, then only start other videos when they are useful to the viewer.
+  const prepareVideo = (video) => {
     video.autoplay = true;
     video.loop = true;
     video.muted = true;
     video.defaultMuted = true;
     video.playsInline = true;
     video.controls = false;
-    const attemptPlay = () => video.play().catch(() => { });
-    attemptPlay();
-    video.addEventListener('canplay', attemptPlay, { once: true });
-  });
-  keepVideosPlaying();
+  };
+  const playVideo = (video) => {
+    prepareVideo(video);
+    video.play().catch(() => { });
+  };
+  const heroVideo = document.querySelector('[data-priority-video]');
+  const featureVideo = document.querySelector('[data-feature-video]');
+  const backgroundVideo = document.querySelector('[data-background-video]');
+  if (heroVideo) {
+    playVideo(heroVideo);
+    heroVideo.addEventListener('canplay', () => playVideo(heroVideo), { once: true });
+  }
+  if (featureVideo) {
+    const featurePlayer = new IntersectionObserver(entries => entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      featureVideo.preload = 'auto';
+      featureVideo.dataset.loaded = 'true';
+      playVideo(featureVideo);
+      featurePlayer.unobserve(entry.target);
+    }), { rootMargin: '500px 0px' });
+    featurePlayer.observe(featureVideo);
+  }
+  if (backgroundVideo) {
+    const startBackground = () => window.setTimeout(() => {
+      backgroundVideo.preload = 'metadata';
+      playVideo(backgroundVideo);
+    }, 800);
+    if (document.readyState === 'complete') startBackground();
+    else window.addEventListener('load', startBackground, { once: true });
+  }
   document.addEventListener('visibilitychange', () => {
-    if (!document.hidden) keepVideosPlaying();
+    if (!document.hidden) {
+      if (heroVideo) playVideo(heroVideo);
+      if (featureVideo?.dataset.loaded === 'true') playVideo(featureVideo);
+      if (backgroundVideo) playVideo(backgroundVideo);
+    }
   });
 
   const nameAnimation = document.querySelector('.name-font-cycle');
