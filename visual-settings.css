@@ -1,0 +1,384 @@
+/*
+  VISUAL SETTINGS
+  Edit this file for visual changes only. Content, links, videos, and images
+  remain in portfolio.config.js. This file is loaded after styles.css, so its
+  values safely override the design without changing the site logic.
+*/
+
+/* === SITE-WIDE COLORS & TYPE === */
+:root {
+  --cream: #e1e0cc;
+  --muted: #dedbc8;
+  --black: #000000;
+  --panel: #101010;
+  --card: #212121;
+  --body-font: Manrope, Arial, sans-serif;
+  --page-background: #000000;
+  --body-text: #e1e0cc;
+}
+
+body {
+  background: var(--page-background);
+  color: var(--body-text);
+  font-family: var(--body-font);
+}
+
+/* === HERO / HEADER VIDEO === */
+.hero {
+  padding: 1.5rem;
+}
+
+.hero-frame {
+  border-radius: 2rem;
+}
+
+.hero-shade {
+  background: linear-gradient(to bottom, rgba(0, 0, 0, .35), transparent 45%, rgba(0, 0, 0, .72));
+}
+
+.hero-copy {
+  padding: 2.5rem;
+  gap: 2rem;
+}
+
+.eyebrow {
+  font-size: .72rem;
+  letter-spacing: .32em;
+  color: rgba(222, 219, 200, .7);
+}
+
+/* Main name */
+h1 {
+  font-size: clamp(3rem, 10vw, 8rem);
+  font-weight: 500;
+  line-height: .85;
+  letter-spacing: -.075em;
+  color: var(--cream);
+}
+
+/* Header navigation */
+nav {
+  gap: 3rem;
+  padding: .8rem 2rem;
+  border-radius: 0 0 1.5rem 1.5rem;
+  background: var(--black);
+  font-size: .875rem;
+}
+
+/* Header Contact button */
+.hero-contact {
+  background: var(--muted);
+  color: var(--black);
+  padding: 10px 20px;
+  font-size: 15px;
+}
+
+.hero-contact:hover {
+  background: var(--cream);
+}
+
+.contact-arrow {
+  width: 34px;
+  height: 34px;
+  margin-left: 10px;
+}
+
+.contact-arrow circle {
+  fill: var(--black);
+  stroke: var(--black);
+}
+
+.contact-arrow path {
+  fill: var(--cream);
+}
+
+.hero-action {
+  align-items: flex-end;
+}
+
+/* === PROFILE / ABOUT PANEL === */
+.about {
+  padding: 6rem 1.5rem;
+}
+
+.panel {
+  max-width: 1152px;
+  padding: 5rem 3rem;
+  border-radius: 2rem;
+  background: var(--panel);
+}
+
+.label {
+  font-size: .72rem;
+  letter-spacing: .32em;
+  color: var(--muted);
+}
+
+.panel h2 {
+  max-width: 850px;
+  font-size: clamp(2.25rem, 4.2vw, 4rem);
+  line-height: .98;
+  color: var(--cream);
+}
+
+.panel em {
+  color: var(--muted);
+}
+
+.description {
+  max-width: 700px;
+  font-size: 1rem;
+  line-height: 1.75;
+  color: rgba(222, 219, 200, .75);
+}
+
+/* Profile role and language pills */
+.chips {
+  gap: .5rem;
+  margin-top: 1.5rem;
+}
+
+.chips span,
+.chips a {
+  padding: .42rem 1rem;
+  border-color: rgba(222, 219, 200, .2);
+  color: rgba(222, 219, 200, .6);
+  font-size: .875rem;
+}
+
+.chips span:hover,
+.chips a:hover {
+  transform: translateY(-.3rem);
+  background: var(--cream);
+  border-color: var(--cream);
+  color: var(--black);
+}
+
+.languages span {
+  font-size: .7rem;
+  letter-spacing: .1em;
+}
+
+/* Profile experience cards */
+.experience {
+  max-width: 770px;
+  gap: .5rem;
+  margin-top: 2rem;
+}
+
+.experience div {
+  padding: 1rem;
+  border-radius: 1rem;
+  border-color: rgba(222, 219, 200, .1);
+  background: rgba(222, 219, 200, .05);
+  color: rgba(225, 224, 204, .75);
+  font-size: .75rem;
+  line-height: 1.7;
+}
+
+/* === SELECTED WORK === */
+.work {
+  padding: 2rem 1.5rem 6rem;
+}
+
+.work-inner {
+  max-width: 1280px;
+}
+
+.section-title {
+  font-size: clamp(4.8rem, 3vw, 10.6rem);
+  color: var(--cream);
+}
+
+.work-grid {
+  gap: 7rem;
+}
+
+/* Desktop 2D work wheel */
+.work-carousel .wrapper {
+  height: 700px;
+}
+
+.work-carousel .work-card {
+  width: clamp(270px, 33vw, 440px);
+  height: 600px;
+}
+
+.carousel-control {
+  width: 3rem;
+  height: 3rem;
+}
+
+.feature,
+.work-card {
+  border-radius: 1.75rem;
+  background: var(--card);
+}
+
+.feature {
+  min-height: 560px;
+}
+
+.work-card {
+  height: 360px;
+}
+
+.feature strong {
+  font-size: 1.5rem;
+  color: var(--cream);
+}
+
+.feature p {
+  font-size: .875rem;
+  color: rgba(222, 219, 200, .6);
+}
+
+.card-copy {
+  padding: 1.25rem;
+}
+
+.card-copy h3 {
+  font-size: 1rem;
+  color: var(--cream);
+}
+
+/* === TOOLKIT, CONNECT & FOOTER === */
+.tools {
+  padding: 0 1.5rem 6rem;
+}
+
+.tools-row {
+  gap: 2rem;
+  border-color: rgba(222, 219, 200, .15);
+}
+
+.tools-row p:not(.label),
+.location {
+  font-size: .875rem;
+  color: #999;
+}
+
+.tool {
+  padding: .5rem 1rem .5rem .5rem;
+  background: var(--card);
+  color: var(--cream);
+  font-size: .875rem;
+}
+
+.tool:hover {
+  transform: translateY(-.3rem);
+  background: var(--cream);
+  color: var(--black);
+}
+.tool-mark {
+  background: rgba(222,219,200,.14);
+  color: var(--cream);
+}
+.tool:hover .tool-mark {
+  background: var(--black);
+  color: var(--cream);
+}
+
+.connect {
+  gap: 1.25rem;
+  border-color: rgba(222, 219, 200, .1);
+  color: rgba(222, 219, 200, .5);
+  font-size: .875rem;
+}
+
+/* Bottom contact panel */
+.contact {
+  padding: 0 1.5rem 8rem;
+}
+
+.email {
+  margin-top: 2.5rem;
+}
+
+/* === MOBILE VISUALS === */
+@media (max-width: 700px) {
+  .hero {
+    padding: 1rem;
+  }
+
+  .hero-frame {
+    border-radius: 1rem;
+  }
+
+  .hero-copy {
+    padding: 1.25rem;
+    gap: 1.25rem;
+  }
+
+  .hero-action {
+    align-items: flex-start;
+  }
+
+  .eyebrow,
+  .label {
+    font-size: .6rem;
+  }
+
+  h1 {
+    font-size: clamp(3.35rem, 15vw, 4.25rem);
+    line-height: .88;
+  }
+
+  /* Show the animated name as two deliberate lines on small screens. */
+  .name-font-cycle {
+    white-space: normal;
+  }
+
+  .name-space {
+    display: block;
+    width: 0;
+    height: 0;
+  }
+
+  .font-cycle-long {
+    --cycle-slot: 8.5em;
+  }
+
+  .font-cycle-short {
+    --cycle-slot: 6em;
+  }
+
+  .about,
+  .work {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .panel {
+    padding: 3rem 1.25rem;
+    border-radius: 1.5rem;
+  }
+
+  .work-card {
+    height: 320px;
+  }
+
+  /* On phones, show the work as a simple full-width, scrollable card list. */
+  .work-carousel .wrapper {
+    height: auto;
+  }
+
+  .work-carousel .work-card {
+    width: auto;
+    height: 320px;
+  }
+
+  .tools {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .contact {
+    padding: 0 1rem 5rem;
+  }
+
+  .email {
+    max-width: 100%;
+    font-size: .78rem;
+  }
+}
