@@ -19,7 +19,6 @@ window.PORTFOLIO = {
   profile: {
     headline: "I am Aditya Maurya,",
     emphasis: "videographer.",
-    emphasisCycle: ["Creative Head.", "Video Editor.", "AI Creator.", "Videographer.", "Photographer."],
     roles: ["Creative Head", "Video Editor", "AI Video Creator", "Videographer", "Photographer"],
     description: "Creative Head and freelance video editor producing AI-powered Reels, event coverage, and brand stories - from ideation and filming to layered editing, color correction, voice-over integration, publishing, and performance analysis.",
     experience: [
@@ -45,7 +44,8 @@ window.PORTFOLIO = {
     { title: "Farewell 2026", image: "./img-vid/Farewell.png", url: "https://www.instagram.com/p/DWHUOLvjRe_/" },
     { title: "Denim Therapy", image: "./img-vid/Denim.png", url: "https://www.instagram.com/p/DPZB21CDDGP/" },
     { title: "Mid-Night", image: "./img-vid/Mid.png", url: "https://www.instagram.com/p/DP_qqC-ExGN/" },
-    { title: "Gudipadwa", image: "./img-vid/Gudipadwa.png", url: "https://www.instagram.com/p/DH2ehNtTH-Q/" }
+    { title: "Gudipadwa", image: "./img-vid/Gudipadwa.png", url: "https://www.instagram.com/p/DH2ehNtTH-Q/" },
+    { title: "Neha Sahaya", image: "./img-vid/neha.png", url: "https://drive.google.com/file/d/10cQI-z0JA9sZ2TN4-9nTYXdv-XclvEL-/view?usp=drive_link" }
 
   ],
   tools: [
