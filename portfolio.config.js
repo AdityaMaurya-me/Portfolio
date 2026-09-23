@@ -40,21 +40,6 @@ window.PORTFOLIO = {
     { title: "Ganesh Chaturthi 2025", image: "./img-vid/Ganesh.png", url: "https://www.instagram.com/reel/DOVon3pDUdH/" },
     { title: "AI Edit", image: "./img-vid/6.png", url: "https://www.instagram.com/reel/DZPIhNvxqV9/" },
     { title: "Ganesh Aagman 2026", image: "./img-vid/Aagman.jpeg", url: "https://www.instagram.com/p/DcqzpscNC2G/" },
-    { title: "Zephyr 2023 Thakur College", image: "./img-vid/Zephyr.png", url: "https://www.instagram.com/reel/CyqR5vcrWIl/" },
-    { title: "Farewell 2026", image: "./img-vid/Farewell.png", url: "https://www.instagram.com/p/DWHUOLvjRe_/" },
-    { title: "Denim Therapy", image: "./img-vid/Denim.png", url: "https://www.instagram.com/p/DPZB21CDDGP/" },
-    { title: "Mid-Night", image: "./img-vid/Mid.png", url: "https://www.instagram.com/p/DP_qqC-ExGN/" },
-    { title: "Gudipadwa", image: "./img-vid/Gudipadwa.png", url: "https://www.instagram.com/p/DH2ehNtTH-Q/" },
-    { title: "Neha Sahaya", image: "./img-vid/neha.png", url: "https://drive.google.com/file/d/10cQI-z0JA9sZ2TN4-9nTYXdv-XclvEL-/view?usp=drive_link" }
-
-  ],
-
-  work: [
-    { title: "GRRRxUndeground MotoSport Event", image: "./img-vid/GRRR.png" },
-    { title: "Photowalk", image: "./img-vid/Ganesh.png", url: "https://www.instagram.com/reel/DVGWxlEDSYW/" },
-    { title: "Ganesh Chaturthi 2025", image: "./img-vid/Ganesh.png", url: "https://www.instagram.com/reel/DOVon3pDUdH/" },
-    { title: "AI Edit", image: "./img-vid/6.png", url: "https://www.instagram.com/reel/DZPIhNvxqV9/" },
-    { title: "Ganesh Aagman 2026", image: "./img-vid/Aagman.jpeg", url: "https://www.instagram.com/p/DcqzpscNC2G/" },
     { title: "Stranger Interview", image: "./img-vid/Documentry.png", url: "https://www.instagram.com/reel/DdlTcGes5fu/?stkn=MWlhNjZtbjdhMHRndQ==" },
     { title: "Zephyr 2023 Thakur College", image: "./img-vid/Zephyr.png", url: "https://www.instagram.com/reel/CyqR5vcrWIl/" },
     { title: "Farewell 2026", image: "./img-vid/Farewell.png", url: "https://www.instagram.com/p/DWHUOLvjRe_/" },
@@ -64,6 +49,9 @@ window.PORTFOLIO = {
     { title: "Neha Sahaya", image: "./img-vid/neha.png", url: "https://drive.google.com/file/d/10cQI-z0JA9sZ2TN4-9nTYXdv-XclvEL-/view?usp=drive_link" }
 
   ],
+
+
+
   tools: [
     { name: "DaVinci Resolve", icon: "https://www.google.com/s2/favicons?domain=blackmagicdesign.com&sz=128", url: "https://www.blackmagicdesign.com/products/davinciresolve" },
     { name: "CapCut", icon: "https://www.google.com/s2/favicons?domain=capcut.com&sz=128", url: "https://www.capcut.com/" },
