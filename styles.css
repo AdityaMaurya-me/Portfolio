@@ -110,6 +110,8 @@ h1 sup{font-size:.28em;vertical-align:super;margin-left:.2em;letter-spacing:0}
 .card-copy h3{margin:0;font-size:1rem;line-height:1.4}
 .card-link-arrow{flex:0 0 1.35rem;width:1.35rem;height:1.35rem;fill:none;stroke:rgba(225,224,204,.6);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;transition:transform .25s}
 .work-card:hover .card-link-arrow{transform:translate(.25rem,-.25rem)}
+.image-only-card::after{display:none}
+.image-only-card:hover img{transform:none}
 .tools{padding-top:0}
 .tools-row{display:flex;align-items:center;justify-content:space-between;gap:2rem;padding-top:2rem;border-top:1px solid rgba(222,219,200,.15)}
 .tools-row p:not(.label){color:#999;font-size:.875rem;margin:0;max-width:520px}

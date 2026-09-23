@@ -19,6 +19,10 @@
       <a href="${safe(item.url)}" ${linkAttrs(item.url)} aria-label="Open ${safe(item.title)}"></a>
       <div class="card-copy"><h3>${safe(item.title)}</h3><svg class="card-link-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></div>
     </article>`).join('');
+  const galleryCards = p.work.map((item, index) => `
+    <article class="work-card card image-only-card" style="--index:${index}">
+      <img src="${safe(item.image)}" alt="" loading="lazy" />
+    </article>`).join('');
   const toolLinks = p.tools.map(tool => `<a class="tool" href="${safe(tool.url)}" ${linkAttrs(tool.url)}>${tool.icon ? `<img class="tool-logo" src="${safe(tool.icon)}" alt="" />` : `<span class="tool-mark" aria-hidden="true">${safe(tool.name.charAt(0))}</span>`}${safe(tool.name)}</a>`).join('');
   app.innerHTML = `
     <div class="site-background" aria-hidden="true"><video data-background-video src="${safe(p.backgroundVideo)}" loop muted playsinline webkit-playsinline preload="none"></video></div>
@@ -30,8 +34,11 @@
       </div>
     </section>
     <section class="about section" id="about"><div class="panel centered reveal"><p class="label">Hello there,</p><div class="about-heading-art"><img class="about-side-mark about-laptop-mark" src="./img-vid/cat-laptop.png" alt="" aria-hidden="true" /><h2>${safe(p.profile.headline)} <em class="font-cycle-holder font-cycle-long"><span class="font-cycle role-cycle" data-role-cycle>${safe(p.profile.roles[0])}</span></em></h2><img class="about-side-mark about-headphones-mark" src="./img-vid/cat-headphones.png" alt="" aria-hidden="true" /></div><div class="chips">${p.profile.roles.map(x => `<span>${safe(x)}</span>`).join('')}</div><p class="description">${safe(p.profile.description)}</p><div class="experience">${p.profile.experience.map(x => `<div>${safe(x)}</div>`).join('')}</div><div class="chips languages">${p.profile.languages.map(x => `<span>${safe(x)}</span>`).join('')}</div><img class="about-cat-mark" src="./img-vid/cat-camera-mark.png" alt="" aria-hidden="true" /></div></section>
-    <section class="work section" id="work"><div class="work-inner"><h2 class="section-title reveal">And That's me</h2><div class="work-grid"><article class="feature reveal"><video class="feature-video ${p.featured.rotateToLandscape ? 'rotate-landscape' : ''}" data-feature-video src="${safe(p.featured.video)}" autoplay loop muted playsinline webkit-playsinline preload="none" disablepictureinpicture controlslist="nodownload nofullscreen noremoteplayback"></video><div class="shade"></div><div><strong>${safe(p.featured.title)}</strong><p>${safe(p.featured.subtitle)}</p></div></article></div><h2 class="section-title reveal">Take a look around.</h2><div class="work-carousel" aria-label="Selected work carousel"><button class="carousel-control carousel-prev" type="button" aria-label="Show previous work"><svg class="carousel-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></button><div class="wrapper"><div class="inner" style="--quantity:${p.work.length}">${cards}</div></div><button class="carousel-control carousel-next" type="button" aria-label="Show next work"><svg class="carousel-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button></div></div></section>
-    <section class="tools section" id="tools"><div class="tools-row"><div><p class="label">Toolkit</p><p>The tools behind the work, shown only when they exist in the creator profile.</p></div><div class="tool-list">${toolLinks}</div></div><p class="location"></p></section>
+    <section class="work section" id="work"><div class="work-inner"><h2 class="section-title reveal">And That's me</h2><div class="work-grid"><article class="feature reveal"><video class="feature-video ${p.featured.rotateToLandscape ? 'rotate-landscape' : ''}" data-feature-video src="${safe(p.featured.video)}" autoplay loop muted playsinline webkit-playsinline preload="none" disablepictureinpicture controlslist="nodownload nofullscreen noremoteplayback"></video><div class="shade"></div><div><strong>${safe(p.featured.title)}</strong><p>${safe(p.featured.subtitle)}</p></div></article></div><h2 class="section-title reveal">Take a look around.</h2><div class="work-carousel" aria-label="Selected work carousel"><button class="carousel-control carousel-prev" type="button" aria-label="Show previous work"><svg class="carousel-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></button><div class="wrapper"><div class="inner" style="--quantity:${p.work.length}">${cards}</div></div><button class="carousel-control carousel-next" type="button" aria-label="Show next work"><svg class="carousel-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button></div><h2 class="section-title reveal">More to explore.</h2><div class="work-carousel" aria-label="Image gallery carousel"><button class="carousel-control carousel-prev" type="button" aria-label="Show previous image"><svg class="carousel-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></button><div class="wrapper"><div class="inner" style="--quantity:${p.work.length}">${galleryCards}</div></div><button class="carousel-control carousel-next" type="button" aria-label="Show next image"><svg class="carousel-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button></div></div></section>
+    <section class="tools section" id="tools"><div class="tools-row"><div><p class="label">Toolkit</p><p>The tools behind the work, shown only when they exist in the creator profile.</p></div><div class="tool-list">
+    
+    
+    ${toolLinks}</div></div><p class="location"></p></section>
     <section class="contact section" id="contact"><div class="panel centered reveal"><p class="label">Get in touch</p><h2>Let's make something <em class="font-cycle-holder font-cycle-short"><span class="font-cycle">together.</span></em></h2><a class="pill email hero-contact" href="${mail}"><span>${safe(p.contact.email)}</span>${contactArrow}</a><div class="social-cat-row"><a class="pill social-contact" href="${safe(p.contact.instagram)}" ${linkAttrs(p.contact.instagram)}>Instagram</a><img class="contact-cat-phone" src="./img-vid/cat-social-outline.png" alt="Cat holding a phone" /><a class="pill social-contact" href="${safe(p.contact.whatsapp)}" ${linkAttrs(p.contact.whatsapp)}>WhatsApp</a></div></div></section>`;
   document.title = `${p.name} – ${p.role} Portfolio`;
   const observer = new IntersectionObserver(entries => entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); }), { threshold: .12 });
@@ -48,8 +55,7 @@
       roleCycleText.classList.add('role-cycle');
     }, 1800);
   }
-  const carousel = document.querySelector('.work-carousel');
-  if (carousel) {
+  document.querySelectorAll('.work-carousel').forEach(carousel => {
     const track = carousel.querySelector('.inner');
     const workCards = [...track.querySelectorAll('.work-card')];
     let activeCard = 0;
@@ -71,7 +77,7 @@
       renderCarousel();
     });
     renderCarousel();
-  }
+  });
   const fitRotatedFeatureVideo = () => document.querySelectorAll('.rotate-landscape').forEach(video => {
     const frame = video.closest('.feature');
     video.style.setProperty('--rotated-width', `${frame.clientHeight}px`);
