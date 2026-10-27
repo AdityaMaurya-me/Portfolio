@@ -36,11 +36,11 @@ window.PORTFOLIO = {
   },
   work: [
     { title: "GRRRxUndeground MotoSport Event", image: "./img-vid/GRRR.png", url: "https://www.instagram.com/p/DciHc8ttUxF/" },
+    { title: "Stranger Interview", image: "./img-vid/Documentry.png", url: "https://www.instagram.com/reel/DdlTcGes5fu/?stkn=MWlhNjZtbjdhMHRndQ==" },
     { title: "Photowalk", image: "./img-vid/Photowalk.png", url: "https://www.instagram.com/reel/DVGWxlEDSYW/" },
     { title: "Ganesh Chaturthi 2025", image: "./img-vid/Ganesh.png", url: "https://www.instagram.com/reel/DOVon3pDUdH/" },
     { title: "AI Edit", image: "./img-vid/6.png", url: "https://www.instagram.com/reel/DZPIhNvxqV9/" },
     { title: "Ganesh Aagman 2026", image: "./img-vid/Aagman.jpeg", url: "https://www.instagram.com/p/DcqzpscNC2G/" },
-    { title: "Stranger Interview", image: "./img-vid/Documentry.png", url: "https://www.instagram.com/reel/DdlTcGes5fu/?stkn=MWlhNjZtbjdhMHRndQ==" },
     { title: "Zephyr 2023 Thakur College", image: "./img-vid/Zephyr.png", url: "https://www.instagram.com/reel/CyqR5vcrWIl/" },
     { title: "Farewell 2026", image: "./img-vid/Farewell.png", url: "https://www.instagram.com/p/DWHUOLvjRe_/" },
     { title: "Denim Therapy", image: "./img-vid/Denim.png", url: "https://www.instagram.com/p/DPZB21CDDGP/" },
